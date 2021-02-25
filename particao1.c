@@ -19,10 +19,7 @@ void imprime(int n, int *a)
 
 void particaoInteiros(int n, int *a)
 {
-    int prim;
-    int i;
-    int ult = 0;
-    int index = 0;
+    int prim, i, ult = 0, index = 0, numParts = 0;
     Call *pilha = (Call *)malloc(sizeof(Call) * 1000);
     pilha[0].prim = -1;
     pilha[0].n = n;
@@ -38,6 +35,7 @@ void particaoInteiros(int n, int *a)
             {
                 a[index] = n;
                 imprime(index, a);
+                numParts++;
                 prim = (index == 0) ? 1 : a[index - 1];
                 i = prim;
             }
@@ -65,19 +63,15 @@ void particaoInteiros(int n, int *a)
             ult--;
         }
     }
+    printf("%d", numParts);
 }
 
 int main()
 {
-    int N = 1;
-    int *a = (int *)malloc(sizeof(int) * N);
-    int i;
-    printf("\nDigite um numero X para que seja mostrada uma particao de 1 a X: ");
+    int N = 1, *vetor = (int *)malloc(sizeof(int) * N), i;
+    printf("\nDigite um inteiro positivo: ");
     scanf("%d", &N);
-    for (i = 1; i <= N; i++)
-    {
-        printf("\nA particao de inteiros para %d é: \n", i);
-        particaoInteiros(i, a);
-    }
+    printf("\nResultado %d: \n", N);
+    particaoInteiros(N, vetor);
     return (0);
 }

@@ -1,0 +1,9 @@
+No visualstudio code, com o ambiente do GCC já instalado, no diretorio TP1, abra o terminal e digite:
+
+(para o particao1.c)
+- gcc particao1.c -o run
+- ./run
+
+(para o particao2.c)
+- gcc particao2.c -o run
+- ./run
